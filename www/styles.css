@@ -1,0 +1,49 @@
+/* custom styles */
+
+.app-container {
+    margin-top: 1em;
+}
+
+.app-header {
+    padding: 0.6em 1.5em;
+    background: -webkit-linear-gradient(45deg,
+        hsl(164deg 39% 52%) 0%,
+        hsl(164deg 42% 52%) 16%,
+        hsl(164deg 46% 52%) 26%,
+        hsl(164deg 49% 51%) 35%,
+        hsl(164deg 53% 51%) 42%,
+        hsl(164deg 56% 50%) 50%,
+        hsl(164deg 59% 51%) 57%,
+        hsl(164deg 60% 51%) 64%,
+        hsl(164deg 61% 52%) 71%,
+        hsl(164deg 63% 53%) 79%,
+        hsl(164deg 64% 54%) 88%,
+        hsl(164deg 66% 55%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.app-header h3 {
+    margin-bottom: 0;
+}
+
+.app-footer {
+    background-color: #FFFFFF;
+    font-size: 0.8em;
+    color: #C0C0C0;
+}
+
+.app-footer-child {
+    margin: 0.3em 0;
+}
+
+.grid-parent {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(40px, 40px));
+}
+
+.grid-child {
+    height: 40px;
+    width: 40px;
+}
