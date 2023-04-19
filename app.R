@@ -8,7 +8,7 @@ library(bslib)
 
 ## version
 fn_version <- function() {
-  return("v0.1")
+  return("v1.0.0")
 }
 
 shinyApp(
