@@ -10,7 +10,7 @@ A shiny app to generate distinct colours.
 
 ### Run online
 
-Click [here](https://hues.serve.scilifelab.se/) to access an online instance of this app. This link may not always be active.
+Click [here](https://re41be749.serve.scilifelab.se/) to access an online instance of this app. This link may not always be active.
 
 ### Run using docker
 
