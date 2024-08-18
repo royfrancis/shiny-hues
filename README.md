@@ -4,7 +4,7 @@
 
 A shiny app to generate distinct colours.
 
-![](preview.png)
+![](preview.webp)
 
 ## Running the app
 
