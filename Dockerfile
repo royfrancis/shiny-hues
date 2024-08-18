@@ -1,19 +1,20 @@
-FROM rocker/shiny:4.2.3
+FROM rocker/shiny:4.3.2
+LABEL Description="Docker image for shiny-hues"
 LABEL authors="Roy Francis"
-LABEL org.opencontainers.image.source https://github.com/royfrancis/shiny-hues
+LABEL org.opencontainers.image.source="https://github.com/royfrancis/shiny-hues"
 
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    install2.r --error --skipinstalled remotes && \
+    Rscript -e 'remotes::install_github("rstudio/bslib");remotes::install_github("johnbaums/hues")' && \
+    rm -rf /tmp/downloaded_packages
 
-RUN Rscript -e 'install.packages(c("pak"),repo="https://cloud.r-project.org/");pak::pkg_install("rstudio/bslib");pak::pkg_install("johnbaums/hues")'
-
-RUN mkdir /srv/shiny-server/app
 COPY . /srv/shiny-server/app
 COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
 RUN sudo chown -R shiny:shiny /srv/shiny-server/app
 
 EXPOSE 3838
 
-CMD ["/usr/bin/shiny-server"]
+ENTRYPOINT ["R", "-e", "shiny::runApp('/srv/shiny-server/app/', host = '0.0.0.0', port = 3838)"]

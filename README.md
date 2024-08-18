@@ -36,6 +36,6 @@ This repo is not an R package. Clone this repo and execute the R command `shiny:
 
 Built on the [hues package](https://github.com/johnbaums/hues).
 
-***
+---
 
-2023 • Roy Francis
+2024 • Roy Francis
