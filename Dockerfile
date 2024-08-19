@@ -9,7 +9,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     install2.r --error --skipinstalled remotes && \
     Rscript -e 'remotes::install_github("rstudio/bslib");remotes::install_github("johnbaums/hues")' && \
-    rm -rf /tmp/downloaded_packages
+    rm -rf /tmp/downloaded_packages \
+    rm -rf /srv/shiny-server/*
 
 COPY . /srv/shiny-server/app
 COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
@@ -17,4 +18,5 @@ RUN sudo chown -R shiny:shiny /srv/shiny-server/app
 
 EXPOSE 3838
 
-ENTRYPOINT ["R", "-e", "shiny::runApp('/srv/shiny-server/app/', host = '0.0.0.0', port = 3838)"]
+CMD ["/usr/bin/shiny-server"]
+# ENTRYPOINT ["R", "-e", "shiny::runApp('/srv/shiny-server/app/', host = '0.0.0.0', port = 3838)"]
