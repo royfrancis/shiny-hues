@@ -12,10 +12,9 @@ RUN apt-get update && \
     rm -rf /tmp/downloaded_packages \
     rm -rf /srv/shiny-server/*
 
-COPY . /srv/shiny-server/app
+COPY . /srv/shiny-server/
 COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
-RUN sudo chown -R shiny:shiny /srv/shiny-server/app
-
+USER shiny
 EXPOSE 3838
 
 CMD ["/usr/bin/shiny-server"]
