@@ -18,7 +18,9 @@ shinyApp(
     tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")),
     title = "Hues",
     theme = bs_theme(bootswatch = "minty"),
+    lang = "en",
     card(
+      full_screen = TRUE,
       card_header(
         class = "app-header",
         div(
